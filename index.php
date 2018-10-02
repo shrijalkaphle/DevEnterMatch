@@ -3,6 +3,7 @@
   $title = "Home";
   include 'layout/header.php';
 
+  $msg = NULL;
   $msg = $_GET['msg'];
 
   if ($msg != NULL) {

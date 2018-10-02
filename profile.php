@@ -136,50 +136,57 @@
 
                       <div class="form-group">
                         <div class="col-xs-6">
-                            <label for="first_name"><h4>First name</h4></label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo($row['fname'])?>" disabled>
+                            <label for="first_name"><h4>First Name</h4></label>
+                            <p class="form-control-static"><?php echo($row['fname'])?></p>
+                            <!--<input type="text" class="form-control no-border" name="first_name" id="first_name" value="<?php echo($row['fname'])?>" > -->
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-xs-6">
-                          <label for="last_name"><h4>Last name</h4></label>
-                          <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo($row['lname'])?>" disabled>
+                          <label for="last_name"><h4>Last Name</h4></label>
+                          <p class="form-control-static"><?php echo($row['lname'])?></p>
+                          <!--<input type="text" class="form-control no-border" name="last_name" id="last_name" value="<?php echo($row['lname'])?>" disabled> -->
                         </div>
                       </div>
           
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="phone"><h4>Phone</h4></label>
-                          <input type="text" class="form-control" name="phone" id="phone" value="<?php echo($row['phone'])?>" disabled>
+                          <p class="form-control-static"><?php echo($row['phone'])?></p>
+                          <!--<input type="text" class="form-control no-border" name="phone" id="phone" value="<?php echo($row['phone'])?>" disabled> -->
                         </div>
                       </div>
           
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="description"><h4>Description</h4></label>
-                          <input type="text" class="form-control" id="description" value="<?php echo($row['description'])?>" disabled>
+                          <p class="form-control-static"><?php echo($row['description'])?></p>
+                          <!--<input type="text" class="form-control no-border" id="description" value="<?php echo($row['description'])?>" disabled> -->
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="skill"><h4>Skills</h4></label>
-                          <input type="text" class="form-control" name="skill" id="skill" placeholder="<?php echo($row['skill'])?>" disabled>
+                          <p class="form-control-static"><?php echo($row['skill'])?></p>
+                          <!--<input type="text" class="form-control no-border" name="skill" id="skill" placeholder="<?php echo($row['skill'])?>" disabled> -->
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="github"><h4>Github Link</h4></label>
-                          <input type="text" class="form-control" name="github" id="github" value="<?php echo($row['github'])?>" disabled>
+                          <p class="form-control-static"><?php echo($row['github'])?></p>
+                          <!--<input type="text" class="form-control no-border" name="github" id="github" value="<?php echo($row['github'])?>" disabled> -->
                         </div>
                       </div>
                       
                       <div class="form-group">    
                         <div class="col-xs-6">
                           <label for="linkedin"><h4>Linkedin Link</h4></label>
-                          <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo($row['linkedin'])?>" disabled>
+                          <p class="form-control-static"><?php echo($row['linkedin'])?></p>
+                          <!--<input type="text" class="form-control no-border" name="linkedin" id="linkedin" value="<?php echo($row['linkedin'])?>" disabled> -->
                         </div>
                       </div>
                 </form>
@@ -191,14 +198,14 @@
                       
                       <div class="form-group">
                         <div class="col-xs-6">
-                            <label for="first_name"><h4>First name</h4></label>
+                            <label for="first_name"><h4>First Name</h4></label>
                             <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo($row['fname'])?>">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <div class="col-xs-6">
-                          <label for="last_name"><h4>Last name</h4></label>
+                          <label for="last_name"><h4>Last Name</h4></label>
                           <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo($row['lname'])?>">
                         </div>
                       </div>
@@ -253,14 +260,14 @@
 
                   <div class="form-group">
                     <div class="col-xs-6">
-                        <label for="password"><h4>Password</h4></label>
+                        <label for="password"><h4>Old Password</h4></label>
                         <input type="password" class="form-control" name="pwd1" id="password" placeholder="Old Password" title="Enter Your Current Password.">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <div class="col-xs-6">
-                      <label for="password2"><h4>Verify</h4></label>
+                      <label for="password2"><h4>New Password</h4></label>
                       <input type="password" class="form-control" name="pwd2" id="password2" placeholder="New Password" title="Enter Your New Password.">
                     </div>
                   </div>

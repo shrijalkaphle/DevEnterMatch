@@ -5,7 +5,7 @@
 	$msg = $_GET['msg'];
 	$error = NULL;
 	if (isset($_SESSION['name'])) {
-		echo "<script>window.location.replace('index.php?msg=$msg');</script>";
+		echo "<script>window.location.replace('index.php');</script>";
 	}
 	if (!isset($_SESSION['name'])) {
 		$error = $msg;
