@@ -3,5 +3,7 @@
 	session_start();
 	session_destroy();
 
-	header('Location: index.php');
+	$msg = "Logout Successfull! See you Again!";
+	
+	echo "<script>window.location.replace('index.php?msg=$msg');</script>";
 ?>

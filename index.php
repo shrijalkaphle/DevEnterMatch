@@ -1,7 +1,17 @@
+<?php error_reporting(0); ?>
 <?php
   $title = "Home";
   include 'layout/header.php';
+
+  $msg = $_GET['msg'];
+
+  if ($msg != NULL) {
+      ?>
+        <div class="alert alert-success fade in alert-dismissible"><center><?php echo $msg; ?></center></div>
+    <?php
+  }
 ?>
+
     <div class="container-fluid jumbotron">
       <h1 class="text-center">Welcome to DevEnterMatch</h1>
       <p class="text-center">Where entrepreneurs meet Developers</p>

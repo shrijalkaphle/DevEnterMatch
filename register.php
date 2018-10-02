@@ -39,8 +39,8 @@
 
 				$query3 = "INSERT INTO user_details (uid) VALUES('$uid')";
 				$result3 = mysqli_query($conn,$query3);
-
-				echo "<script>window.location.replace('index.php');</script>";
+				$msg = "Regestration Successfull!";
+				echo "<script>window.location.replace('index.php?msg=$msg');</script>";
 			}
 		}
 	}

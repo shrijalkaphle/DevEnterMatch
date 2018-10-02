@@ -3,8 +3,8 @@
   $uid = $_GET['id'];
 
   if(!isset($_SESSION['name'])) {
-    $_SESSION['invalid'] = 1;
-    header("Location: login.php");
+    $msg = "Login to View Profile Page!";
+    echo "<script>window.location.replace('login.php?msg=$msg');</script>";
   } 
 
   $msg = NULL;

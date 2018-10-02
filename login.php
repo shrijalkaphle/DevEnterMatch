@@ -1,8 +1,15 @@
+<?php error_reporting(0); ?>
 <?php
 	$title = "Login";
 	include 'layout/header.php';
+	$msg = $_GET['msg'];
 	$error = NULL;
-	
+	if (isset($_SESSION['name'])) {
+		echo "<script>window.location.replace('index.php?msg=$msg');</script>";
+	}
+	if (!isset($_SESSION['name'])) {
+		$error = $msg;
+	}
 	if (isset($_POST['submit'])) {
 		$email = $_POST['email'];
 		$password = $_POST['pwd'];
