@@ -17,8 +17,7 @@
               Yippy yay, yippy yay, I'll be right back with the dope
               Yippy yay, yippy yay, I know you niggas need some more
             Take that shit from me some more, I just need to be alone</p>
-            <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>
-            <a href="register.php"><button class="btn btn-primary" style="float: right;">Register</button></a>
+            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
           </div>
         </div>
         <div class="col-md-4">
@@ -30,8 +29,8 @@
               Yippy yay, yippy yay, I'll be right back with the dope
               Yippy yay, yippy yay, I know you niggas need some more
             Take that shit from me some more, I just need to be alone</p>
-            <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>
-            <a href="register.php"><button class="btn btn-primary" style="float: right;">Register</button></a>
+            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            
           </div>
         </div>
         <div class="col-md-4">
@@ -43,8 +42,7 @@
               Yippy yay, yippy yay, I'll be right back with the dope
               Yippy yay, yippy yay, I know you niggas need some more
             Take that shit from me some more, I just need to be alone</p>
-            <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>
-            <a href="register.php"><button class="btn btn-primary" style="float: right;">Register</button></a>
+            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
           </div>
         </div>
       </div>

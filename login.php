@@ -2,6 +2,7 @@
 	$title = "Login";
 	include 'layout/header.php';
 	$error = NULL;
+	
 	if (isset($_POST['submit'])) {
 		$email = $_POST['email'];
 		$password = $_POST['pwd'];
@@ -16,8 +17,14 @@
 
 			$user = mysqli_num_rows($result);
 			if($user == 1) {
+				$id = $row['id'];
+				$_SESSION['id']=$id;
 				$_SESSION['role']=$row['role'];
 				$_SESSION['name']=$row['username'];
+
+				//if ($_SESSION['role'] == 'developer') {
+					echo "<script>window.location.replace('profile.php?id=$id');</script>";
+				//}
 			} else {
 				$error =  "Invalid Email or Password!";
 			}
@@ -34,7 +41,7 @@
 			}
 		?>
 		<form method="post" action="">
-			<h3 class="text-center">Login Page</h3>
+			<h3 class="text-center" id="text">Login Page</h3>
 			<div class="col-md-4 col-md-offset-4">
 				<div class="well">
 					<div class="form-group">
