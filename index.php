@@ -1,7 +1,18 @@
+<?php error_reporting(0); ?>
 <?php
   $title = "Home";
   include 'layout/header.php';
+
+  $msg = NULL;
+  $msg = $_GET['msg'];
+
+  if ($msg != NULL) {
+      ?>
+        <div class="alert alert-success fade in alert-dismissible"><center><?php echo $msg; ?></center></div>
+    <?php
+  }
 ?>
+
     <div class="container-fluid jumbotron">
       <h1 class="text-center">Welcome to DevEnterMatch</h1>
       <p class="text-center">Where entrepreneurs meet Developers</p>
@@ -17,8 +28,7 @@
               Yippy yay, yippy yay, I'll be right back with the dope
               Yippy yay, yippy yay, I know you niggas need some more
             Take that shit from me some more, I just need to be alone</p>
-            <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>
-            <a href="register.php"><button class="btn btn-primary" style="float: right;">Register</button></a>
+            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
           </div>
         </div>
         <div class="col-md-4">
@@ -30,8 +40,8 @@
               Yippy yay, yippy yay, I'll be right back with the dope
               Yippy yay, yippy yay, I know you niggas need some more
             Take that shit from me some more, I just need to be alone</p>
-            <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>
-            <a href="register.php"><button class="btn btn-primary" style="float: right;">Register</button></a>
+            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            
           </div>
         </div>
         <div class="col-md-4">
@@ -43,8 +53,7 @@
               Yippy yay, yippy yay, I'll be right back with the dope
               Yippy yay, yippy yay, I know you niggas need some more
             Take that shit from me some more, I just need to be alone</p>
-            <a href="login.php"><button type="button" class="btn btn-info">Login</button></a>
-            <a href="register.php"><button class="btn btn-primary" style="float: right;">Register</button></a>
+            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
           </div>
         </div>
       </div>
