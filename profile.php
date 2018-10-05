@@ -1,5 +1,6 @@
 <?php error_reporting(0); ?>
 <?php
+  $title = "Profile";
   include 'layout/header.php';
   $uid = $_GET['id'];
 
@@ -18,12 +19,13 @@
     $fname = $_POST['first_name'];
     $lname = $_POST['last_name'];
     $phone = $_POST['phone'];
+    $organization = $_POST['organization'];
     $description = $_POST['description'];
     $skill = $_POST['skill'];
     $github = $_POST['github'];
     $linkedin = $_POST['linkedin'];
 
-    $query1 = "UPDATE `user_details` SET `fname`='$fname',`lname`='$lname',`phone`='$phone',`description`='$description',`skill`='$skill',`github`='$github',`linkedin`='$linkedin' WHERE uid = '$uid'";
+    $query1 = "UPDATE `user_details` SET `fname`='$fname',`lname`='$lname',`organization`='$organization',`phone`='$phone',`description`='$description',`skill`='$skill',`github`='$github',`linkedin`='$linkedin' WHERE uid = '$uid'";
     $result1 = mysqli_query($conn,$query1) or die ('dberror2');
   }
 
@@ -68,7 +70,7 @@
         $filename = "user_image" . $img;
         unlink($filename);
 
-        $query1 = "UPDATE user_details SET image = '$image'";
+        $query1 = "UPDATE user_details SET image = '$image' WHERE uid='$uid' ";
         $result1 = mysqli_query($conn,$query1);
         $msg = "Image Successfully Uploaded!";
     } else {
@@ -150,7 +152,9 @@
                           <!--<input type="text" class="form-control no-border" name="last_name" id="last_name" value="<?php echo($row['lname'])?>" disabled> -->
                         </div>
                       </div>
-          
+                      
+                      <?php if ($_SESSION['role'] != "sponser"): ?>
+
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="phone"><h4>Phone</h4></label>
@@ -159,6 +163,20 @@
                         </div>
                       </div>
 
+                      <?php endif ?>
+                      <?php if ($_SESSION['role'] == "sponser"): ?>
+                        <?php if ($row['organization'] != NULL): ?>
+                      <div class="form-group">
+                        <div class="col-xs-6">
+                          <label for="phone"><h4>Organization</h4></label>
+                          <p class="form-control-static"><?php echo($row['organization'])?></p>
+                          <!--<input type="text" class="form-control no-border" name="phone" id="phone" value="<?php echo($row['phone'])?>" disabled> -->
+                        </div>
+                      </div>
+                      <?php endif ?>
+                      <?php endif ?>
+                      <?php if ($_SESSION['role'] == "developer"): ?>
+                        
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="skill"><h4>Skills</h4></label>
@@ -167,22 +185,32 @@
                         </div>
                       </div>
 
+                      <?php endif ?>
+                      <?php
+                        if ($row['github'] != NULL) {
+                      ?>
                       <div class="form-group">
                         <div class="col-xs-6">
-                          <label for="github"><h4>Github Link</h4></label>
-                          <p class="form-control-static"><?php echo($row['github'])?></p>
+                          <label for="github"><h4>Github</h4></label>
+                          <p class="form-control-static"><a href="<?php echo($row['github'])?>" target="_blank">View Github Profile</a></p>
                           <!--<input type="text" class="form-control no-border" name="github" id="github" value="<?php echo($row['github'])?>" disabled> -->
                         </div>
                       </div>
-                      
+                      <?php
+                        }
+                        if ($row['linkedin'] != NULL) {
+                      ?>
                       <div class="form-group">    
                         <div class="col-xs-6">
                           <label for="linkedin"><h4>Linkedin Link</h4></label>
-                          <p class="form-control-static"><?php echo($row['linkedin'])?></p>
+                          <p class="form-control-static"><a href="<?php echo($row['linkedin'])?>" target="_blank">View Linkedin Profile</a></p>
                           <!--<input type="text" class="form-control no-border" name="linkedin" id="linkedin" value="<?php echo($row['linkedin'])?>" disabled> -->
                         </div>
                       </div>
-                      
+                      <?php
+                        }
+                      ?>
+
                       <div class="form-group" style="padding-top: 50px">
                         <div class="col-xs-6">
                           <label for="description"><h4>About Me</h4></label>
@@ -209,13 +237,28 @@
                           <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo($row['lname'])?>">
                         </div>
                       </div>
-          
+                      
+                      <?php if ($_SESSION['role'] == "sponser"): ?>
+
+                        <div class="form-group">
+                        <div class="col-xs-6">
+                          <label for="orginization"><h4>Organization</h4></label>
+                          <input type="text" class="form-control" name="organization" id="organization" value="<?php echo($row['organization'])?>">
+                        </div>
+                      </div>
+
+                    <?php endif ?>
+                      <?php if ($_SESSION['role'] != "sponser"): ?>
+
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="phone"><h4>Phone</h4></label>
                           <input type="text" class="form-control" name="phone" id="phone" value="<?php echo($row['phone'])?>">
                         </div>
                       </div>
+
+                      <?php endif ?>
+                      <?php if ($_SESSION['role'] == "developer"): ?>                      
 
                       <div class="form-group">
                         <div class="col-xs-6">
@@ -237,6 +280,8 @@
                           <input type="text" class="form-control" name="linkedin" id="linkedin" value="<?php echo($row['linkedin'])?>">
                         </div>
                       </div>
+
+                    <?php endif ?>
 
                       <div class="form-group">
                         <div class="col-xs-6">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2018 at 01:24 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Oct 05, 2018 at 01:36 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,43 @@ SET time_zone = "+00:00";
 --
 -- Database: `asianhackathon`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `comment` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `comment`) VALUES
+(1, 'Shrijal', 'kaphle.shrijal9@gmail.com', 'asd\r\n'),
+(2, 'Shrijal', 'kaphle.shrijal9@gmail.com', 'asd\r\n'),
+(3, 'Shrijal', 'kaphle.shrijal9@gmail.com', 'asd\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `securityqa`
+--
+
+CREATE TABLE `securityqa` (
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `question1` int(11) NOT NULL,
+  `answer1` int(11) NOT NULL,
+  `question2` int(11) NOT NULL,
+  `answer2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -41,7 +78,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `role`) VALUES
-(4, 'asd', 'asd@gmail.com', 'asd', 'developer');
+(9, 'shrijal', 'kaphle.shrijal9@gmail.com', 'asd', 'developer'),
+(10, 'kdar', 'kdar@gmail.com', 'asd', 'entrepneur'),
+(11, 'iris', 'iris@gmail.com', 'asd', 'sponser');
 
 -- --------------------------------------------------------
 
@@ -54,8 +93,9 @@ CREATE TABLE `user_details` (
   `uid` int(11) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
+  `organization` varchar(50) NOT NULL,
   `phone` bigint(20) NOT NULL,
-  `description` varchar(500) NOT NULL,
+  `description` varchar(100) NOT NULL,
   `skill` varchar(500) NOT NULL,
   `github` varchar(100) NOT NULL,
   `linkedin` varchar(100) NOT NULL,
@@ -66,12 +106,26 @@ CREATE TABLE `user_details` (
 -- Dumping data for table `user_details`
 --
 
-INSERT INTO `user_details` (`id`, `uid`, `fname`, `lname`, `phone`, `description`, `skill`, `github`, `linkedin`, `image`) VALUES
-(1, 4, 'Shrijal', 'Kaphle', 9843564504, 'asd', 'asd', '-', '-', 'ee3bae29f332b0cd8ab0b6dc84c7b2ea.jpg');
+INSERT INTO `user_details` (`id`, `uid`, `fname`, `lname`, `organization`, `phone`, `description`, `skill`, `github`, `linkedin`, `image`) VALUES
+(4, 9, 'Dipal', 'Kaphle', '', 9843564504, 'I am GOD.', 'Java,C++,PHP,Python,Go,Grails,HTML,CSS', 'https://www.github.com/shrijalkaphle', 'https://www.linkedin.com/in/shrijal-kaphle-7526bb12b/', 'pp photo.jpg'),
+(5, 10, '', '', '', 0, '', '', '', '', ''),
+(6, 11, 'iris', 'pokharel', '', 0, 'asd', '', '', '', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `securityqa`
+--
+ALTER TABLE `securityqa`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -90,16 +144,28 @@ ALTER TABLE `user_details`
 --
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `securityqa`
+--
+ALTER TABLE `securityqa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

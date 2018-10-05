@@ -39,8 +39,8 @@
 
 				$query3 = "INSERT INTO user_details (uid) VALUES('$uid')";
 				$result3 = mysqli_query($conn,$query3);
-				$msg = "Regestration Successfull!";
-				echo "<script>window.location.replace('index.php?msg=$msg');</script>";
+
+				echo "<script>window.location.replace('SecurityQA.php?id=$uid');</script>";
 			}
 		}
 	}
@@ -89,7 +89,7 @@
 					</div>
 
 					<div class="text form-group">
-						<input type="submit" name="submit" class="btn btn-default" required>
+						<input type="submit" name="submit" value="Sign Up" class="btn btn-default" required>
 					</div>
 				</form>
 			</div>

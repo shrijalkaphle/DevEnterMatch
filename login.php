@@ -38,15 +38,16 @@
 		}
 	}
 ?>
+<?php
+	if ($error != NULL) {
+?>
+		<div class="alert alert-warning fade in alert-dismissible"><center><?php echo $error; ?></center></div>
+<?php
+	}
+?>
+
 <div class="container">
 	<div class="row">
-		<?php
-			if ($error != NULL) {
-		?>
-				<div class="alert alert-warning fade in alert-dismissible"><center><?php echo $error; ?></center></div>
-		<?php
-			}
-		?>
 		<form method="post" action="">
 			<h3 class="text-center" id="text">Login Page</h3>
 			<div class="col-md-4 col-md-offset-4">
@@ -59,12 +60,15 @@
 						<label>Password</label>
 						<input type="password" name="pwd" class="form-control" required>
 					</div>
-					<a href="#">Forget Password</a>
+					<a href="forget.php">Forget Password</a>
 					<div class="text form-group">
 						<input type="submit" name="submit" class="btn btn-default">
 					</div>
-				</form>
+				</div>
 			</div>
-			<?php
-				include 'layout/footer.php';
-			?>
+		</form>
+	</div>
+</div>
+<?php
+	include 'layout/footer.php';
+?>
