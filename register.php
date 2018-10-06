@@ -82,7 +82,7 @@
 					<div class="form-group">
 						<label>Role</label>
 						<select name="role" class="form-control">
-							<option value="entrepneur">Entrepneur</option>
+							<option value="entrepneur">Entrepreneur</option>
 							<option value="developer">Developer</option>
 							<option value="sponser">Sponser</option>
 						</select>

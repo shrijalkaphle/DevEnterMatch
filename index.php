@@ -60,14 +60,13 @@
       <div class="row">
         <div class="col-md-4">
           <div class="well">
-            <h3 class="text-center">Entrepneur </h3>
+            <h3 class="text-center">Entrepreneur</h3>
             <div class="container-fluid line-break">
             </div>
-            <p>This is THis is Yippy yay, yippy yay, hit me on my cellu' phone
-              Yippy yay, yippy yay, I'll be right back with the dope
-              Yippy yay, yippy yay, I know you niggas need some more
-            Take that shit from me some more, I just need to be alone</p>
-            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            <p>A person who sets up a business or businesses, taking on financial risks in the hope of profit. Entrepreneur can be a help line to many creative minds in the field of technology. The person who leads the team and prepares to create a fame in a global market is the Entrepreneur.</p>
+            <?php if (!$_SESSION['name']): ?>
+              <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-md-4">
@@ -75,12 +74,10 @@
             <h3 class="text-center">Developers</h3>
             <div class="container-fluid line-break">
             </div>
-            <p>THis is Developers THis is Yippy yay, yippy yay, hit me on my cellu' phone
-              Yippy yay, yippy yay, I'll be right back with the dope
-              Yippy yay, yippy yay, I know you niggas need some more
-            Take that shit from me some more, I just need to be alone</p>
-            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
-            
+            <p>A developer is an individual that builds and create software and applications. The genius mind that does the writing or framing an application. Developers are the genius brain that makes the program flexible with their technical and technological idea.</p>
+            <?php if (!$_SESSION['name']): ?>
+              <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            <?php endif ?>
           </div>
         </div>
         <div class="col-md-4">
@@ -88,11 +85,10 @@
             <h3 class="text-center">Sponsor </h3>
             <div class="container-fluid line-break">
             </div>
-            <p>THis is Yippy yay, yippy yay, hit me on my cellu' phone
-              Yippy yay, yippy yay, I'll be right back with the dope
-              Yippy yay, yippy yay, I know you niggas need some more
-            Take that shit from me some more, I just need to be alone</p>
-            <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            <p>A person or organization that pays for or contributes to the costs involved in staging a sporting or artistic event in return for advertising. Sponsor helps in providing fund for the entrepreneurs and developers to carry out the activity of organization.</p>
+            <?php if (!$_SESSION['name']): ?>
+              <center><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></center>
+            <?php endif ?>
           </div>
         </div>
       </div>

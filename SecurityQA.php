@@ -37,7 +37,7 @@
 						<input type="text" name="ans1" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label><?php echo $q1 ?></label>
+						<label><?php echo $q2 ?></label>
 						<input type="text" name="ans2" class="form-control" required>
 					</div>
 					<div class="text form-group">

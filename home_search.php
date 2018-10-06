@@ -6,18 +6,17 @@
     	echo "<script>window.location.replace('login.php?msg=$msg');</script>";
   	}
 
-  	$dev = NULL;
-  	$ent = NULL;
+  	$dev = $_GET['dev'];
+  	$ent = $_GET['ent'];
 
   	if (isset($_POST['search'])) {
   		$var = $_POST['searchDeveloper'];
   		echo "<script>window.location.replace('home_search.php?dev=$var&ent=$ent');</script>";
   	}
-
- 	if (isset($_POST['search1'])) {
+  	if (isset($_POST['entrep'])) {
   		$var = $_POST['searchEntrepreneur'];
   		echo "<script>window.location.replace('home_search.php?dev=$dev&ent=$var');</script>";
-  	} 	
+  	}
 ?>
 <style type="text/css">
 	.search {
@@ -31,8 +30,8 @@
 			<div class="well">
 				<h3 class="text-center">Entrepreneur</h3>
 				<form class="form-inline" method="post" style="float: right">
-					<input type="text" name="searchEntrepreneur" class="form-control" placeholder="Search According to Idea" alt="Search for for Idea">
-					<button class="btn" name="search1">Search</button>
+					<input type="text" name="searchEntrepreneur" class="form-control" placeholder="Search for Idea" alt="Search for Idea">
+					<button class="btn" name="entrep">Search</button>
 				</form>
 				<br><br>
 				<ol>
@@ -41,9 +40,17 @@
 						$result1 = mysqli_query($conn,$query1);
 						while($row1 = mysqli_fetch_assoc($result1)) {
 							$id = $row1['id'];
-							$query2 = "SELECT * FROM user_details WHERE uid = '$id'";
+							if ($ent == NULL) {
+								$query2 = "SELECT * FROM user_details WHERE uid = '$id'";
+							} else {
+								$query2 = "SELECT * FROM user_details WHERE uid = '$id' AND idea LIKE '%$ent%'";
+							}
 							$result2 = mysqli_query($conn,$query2);
 							$row2 = mysqli_fetch_assoc($result2);
+
+							$num0 = mysqli_num_rows($result2);
+
+							if ($num0 != 0):
 					?>
 					<li><a href="home_view.php?id=<?php echo($row2['id']) ?>" onclick="on()">
 						<?php 
@@ -59,7 +66,10 @@
 							 echo $row2['fname']." ".$row2['lname'];?>
 						</a>
 					</li>
-				<?php } ?>
+				<?php
+						endif;
+						} 
+				?>
 				</ol>
 			</div>
 		</div>
@@ -77,9 +87,15 @@
 						$result3 = mysqli_query($conn,$query3);
 						while($row3 = mysqli_fetch_assoc($result3)) {
 							$id = $row3['id'];
-							$query4 = "SELECT * FROM user_details WHERE uid = '$id'";
+							if ($dev == NULL) {
+								$query4 = "SELECT * FROM user_details WHERE uid = '$id'";
+							} else {
+								$query4 = "SELECT * FROM user_details WHERE uid = '$id' AND skill LIKE '%$dev%'";
+							}
 							$result4 = mysqli_query($conn,$query4);
+							$num = mysqli_num_rows($result4);
 							$row4 = mysqli_fetch_assoc($result4);
+							if ($num != 0) :
 					?>
 					<li><a href="home_view.php?id=<?php echo($row4['id']) ?>" onclick="on()">
 						<?php 
@@ -94,8 +110,12 @@
 							}
 							 echo $row4['fname']." ".$row4['lname'];?>
 						</a>
+
 					</li>
-				<?php } ?>
+				<?php
+						endif; 
+					}
+				?>
 				</ol>
 			</div>
 		</div>

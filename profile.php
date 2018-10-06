@@ -19,13 +19,14 @@
     $fname = $_POST['first_name'];
     $lname = $_POST['last_name'];
     $phone = $_POST['phone'];
+    $idea = $_POST['idea'];
     $organization = $_POST['organization'];
     $description = $_POST['description'];
     $skill = $_POST['skill'];
     $github = $_POST['github'];
     $linkedin = $_POST['linkedin'];
 
-    $query1 = "UPDATE `user_details` SET `fname`='$fname',`lname`='$lname',`organization`='$organization',`phone`='$phone',`description`='$description',`skill`='$skill',`github`='$github',`linkedin`='$linkedin' WHERE uid = '$uid'";
+    $query1 = "UPDATE `user_details` SET `fname`='$fname',`lname`='$lname',`organization`='$organization',`idea`='$idea',`phone`='$phone',`description`='$description',`skill`='$skill',`github`='$github',`linkedin`='$linkedin' WHERE uid = '$uid'";
     $result1 = mysqli_query($conn,$query1) or die ('dberror2');
   }
 
@@ -175,6 +176,16 @@
                       </div>
                       <?php endif ?>
                       <?php endif ?>
+
+                      <?php if ($_SESSION['role'] == "entrepneur"): ?>
+                      <div class="form-group">
+                        <div class="col-xs-6">
+                          <label for="phone"><h4>Idea</h4></label>
+                          <p class="form-control-static"><?php echo($row['idea'])?></p> 
+                        </div>
+                      </div>
+                      <?php endif ?>
+
                       <?php if ($_SESSION['role'] == "developer"): ?>
                         
                       <div class="form-group">
@@ -254,6 +265,16 @@
                         <div class="col-xs-6">
                           <label for="phone"><h4>Phone</h4></label>
                           <input type="text" class="form-control" name="phone" id="phone" value="<?php echo($row['phone'])?>">
+                        </div>
+                      </div>
+
+                      <?php endif ?>
+                      <?php if ($_SESSION['role'] == "entrepneur"): ?>
+
+                      <div class="form-group">
+                        <div class="col-xs-6">
+                          <label for="idea"><h4>Idea</h4></label>
+                          <input type="text" class="form-control" name="idea" id="idea" value="<?php echo($row['idea'])?>" required>
                         </div>
                       </div>
 
